@@ -15,7 +15,7 @@ class CoffeeMachine:
         print(str(self.cups) + " of disposable cups")
         print(str(self.money) + " of money")
 
-    def make_coffee(self, water = 0, milk = 0, required_beans = 0, cups = 0, cost = 0):
+    def make_coffee(self, water = 0, milk = 0, beans = 0, cups = 0, cost = 0):
         if self.water >= water:
             self.water -= water
         else:
@@ -28,8 +28,8 @@ class CoffeeMachine:
             print("Sorry, not enough milk!")
             return
 
-        if self.beans >= required_beans:
-            self.beans -= required_beans
+        if self.beans >= beans:
+            self.beans -= beans
         else:
             print("Sorry, not enough beans!")
             return
@@ -46,7 +46,7 @@ class CoffeeMachine:
     def buy(self):
         flavor = input("What do you want to buy? 1 - espresso, 2 - latte, 3 - cappuccino:")
         if flavor == "1":
-            self.make_coffee(250, 0, 16, 1, 4)
+            self.make_coffee(water=250, beans=16, cups=1, money=4) # milk=0
         elif flavor == "2":
             self.make_coffee(350, 75, 20, 1, 7)
         elif flavor == "3":
